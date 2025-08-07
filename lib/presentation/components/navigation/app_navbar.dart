@@ -128,14 +128,16 @@ class _AppNavbarState extends State<AppNavbar> {
                   }
                   return KeyEventResult.ignored;
                 },
-                child: Container(
-                  decoration: hasFocus
-                      ? BoxDecoration(
-                          border: Border(
-                            bottom: BorderSide(color: Colors.white),
-                          ),
-                        )
-                      : null,
+                child: AnimatedContainer(
+                  curve: Curves.easeOutCirc,
+                  duration: Duration(milliseconds: 100),
+                  decoration: BoxDecoration(
+                    border: Border(
+                      bottom: BorderSide(
+                        color: hasFocus ? Colors.white : Colors.white.withAlpha(0),
+                      ),
+                    ),
+                  ),
                   child: AnimatedDefaultTextStyle(
                     style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: isSelected

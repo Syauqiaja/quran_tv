@@ -49,10 +49,7 @@ class _ReciterCardItemState extends State<ReciterCardItem> {
                 ),
               ],
             ),
-            AnimatedContainer(
-              key: ValueKey(widget.index),
-              curve: Curves.easeOutCirc,
-              duration: Duration(milliseconds: 100),
+            Container(
               width: double.infinity,
               height: double.infinity,
               decoration: BoxDecoration(
