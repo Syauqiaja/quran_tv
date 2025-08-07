@@ -10,6 +10,9 @@ class FavoritesScreen extends StatefulWidget {
 class _FavoritesScreenState extends State<FavoritesScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+
+    return Scaffold(
+      body: Center(child: Text("Favorite Screen"),),
+    );
   }
 }
