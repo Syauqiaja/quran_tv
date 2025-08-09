@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
+import 'package:quran_tv/config/routes/route.dart';
 import 'package:quran_tv/presentation/components/navigation/app_navbar.dart';
 import 'package:quran_tv/presentation/screens/downloads/downloads_screen.dart';
 import 'package:quran_tv/presentation/screens/favorites/favorites_screen.dart';

@@ -134,7 +134,7 @@ class _AppNavbarState extends State<AppNavbar> {
                   decoration: BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
-                        color: hasFocus ? Colors.white : Colors.white.withAlpha(0),
+                        color: hasFocus ? Colors.white : Colors.white.withAlpha(0 ),
                       ),
                     ),
                   ),

@@ -26,7 +26,7 @@ class _ReciterCardItemState extends State<ReciterCardItem> {
   Widget build(BuildContext context) {
     final overlayColor = Color(0xFF131419);
     return Focus(
-              key: ValueKey(widget.index),
+      key: ValueKey(widget.index),
       focusNode: widget.focusNode,
       onFocusChange: _onFocusChange,
       child: Container(
@@ -39,11 +39,13 @@ class _ReciterCardItemState extends State<ReciterCardItem> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Opacity(
-                  opacity: 0.8,
+                AnimatedOpacity(
+                  duration: Duration(milliseconds: 100),
+                  curve: Curves.easeOutCirc,
+                  opacity: hasFocus ? 1 : 0.7,
                   child: Image.asset(
                     Assets.thumbnailSudais,
-                    fit: BoxFit.fitHeight,
+                    fit: BoxFit.cover,
                     width: 170,
                   ),
                 ),
@@ -71,9 +73,10 @@ class _ReciterCardItemState extends State<ReciterCardItem> {
               ),
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Expanded(child: SizedBox()),
-                Expanded(
+                SizedBox(
+                  width: 170,
                   child: Padding(
                     padding: const EdgeInsets.only(
                       left: 8.0,
@@ -89,7 +92,12 @@ class _ReciterCardItemState extends State<ReciterCardItem> {
                             children: [
                               Text(
                                 "${widget.index} Syeikh Abdurrahman as-Sudais",
-                                style: Theme.of(context).textTheme.bodyMedium,
+                                style: Theme.of(context).textTheme.bodyMedium
+                                    ?.copyWith(
+                                      color: hasFocus
+                                          ? Colors.white
+                                          : Colors.white70,
+                                    ),
                               ),
                               Text(
                                 "Saudi Arabia",
@@ -120,15 +128,12 @@ class _ReciterCardItemState extends State<ReciterCardItem> {
     });
 
     if (value) {
-      // Scroll into view with animation when focused
-      Future.microtask(() {
-        Scrollable.ensureVisible(
-          context,
-          duration: const Duration(milliseconds: 200),
-          alignment: 0.9,
-          curve: Curves.easeOutSine,
-        );
-      });
+      Scrollable.ensureVisible(
+        context,
+        duration: const Duration(milliseconds: 200),
+        alignment: 0.5,
+        curve: Curves.easeOutSine,
+      );
     }
   }
 }

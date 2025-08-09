@@ -34,6 +34,7 @@ class _NowPlayingWidgetState extends State<NowPlayingWidget> {
                   'Now Playing',
                   style: Theme.of(context).textTheme.displaySmall?.copyWith(
                     fontWeight: FontWeight.normal,
+                    color: hasFocus ? Colors.white : Colors.white70,
                   ),
                 ),
                 AnimatedContainer(
@@ -41,9 +42,13 @@ class _NowPlayingWidgetState extends State<NowPlayingWidget> {
                   duration: Duration(milliseconds: 100),
                   width: hasFocus ? 8 : 0,
                 ),
-                const Padding(
+                Padding(
                   padding: EdgeInsets.only(top: 8.0),
-                  child: Icon(Icons.arrow_right, size: 40),
+                  child: Icon(
+                    Icons.arrow_right,
+                    size: 40,
+                    color: hasFocus ? Colors.white : Colors.white70,
+                  ),
                 ),
               ],
             ),
@@ -68,16 +73,24 @@ class _NowPlayingWidgetState extends State<NowPlayingWidget> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    CircleAvatar(
-                      radius: 16,
-                      backgroundColor: Theme.of(context).cardColor,
-                      backgroundImage: AssetImage(Assets.thumbnailSudais),
+                    Opacity(
+                      opacity: hasFocus ? 1 : 0.8,
+                      child: CircleAvatar(
+                        radius: 16,
+                        backgroundColor: Theme.of(context).cardColor,
+                        backgroundImage: AssetImage(Assets.thumbnailSudais),
+                      ),
                     ),
                     const SizedBox(width: 12),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('Al-Baqarah'),
+                        Text(
+                          'Al-Baqarah',
+                          style: TextStyle(
+                            color: hasFocus ? Colors.white : Colors.white70,
+                          ),
+                        ),
                         Text(
                           "Syeikh Abdurrahman as-Sudais",
                           style: Theme.of(context).textTheme.bodySmall,
