@@ -53,7 +53,6 @@ class _PlaylistItemWidgetState extends State<PlaylistItemWidget> {
               opacity: hasFocus ? 1 : 0,
               duration: Duration(milliseconds: 100),
               child: OutlinedButton(onPressed: (){
-                print("Open Al Baqarah");
               }, child: Text("Play")),
             ),
             IconButton(onPressed: () {}, icon: Icon(Icons.favorite_outline), style: IconButton.styleFrom(
