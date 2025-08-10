@@ -7,7 +7,9 @@ part of '../quran_model.dart';
 // **************************************************************************
 
 QuranModel _$QuranModelFromJson(Map<String, dynamic> json) => QuranModel(
-  title: json['title'] as String?,
+  json['type'] as String?,
+  (json['duration'] as num?)?.toInt(),
+  title: json['title'] as String,
   totalAyahs: (json['total_ayahs'] as num?)?.toInt(),
   totalLines: (json['total_lines'] as num?)?.toInt(),
 );
@@ -15,6 +17,8 @@ QuranModel _$QuranModelFromJson(Map<String, dynamic> json) => QuranModel(
 Map<String, dynamic> _$QuranModelToJson(QuranModel instance) =>
     <String, dynamic>{
       'title': instance.title,
+      'type': instance.type,
       'total_ayahs': instance.totalAyahs,
       'total_lines': instance.totalLines,
+      'duration': instance.duration,
     };

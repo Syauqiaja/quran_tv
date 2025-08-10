@@ -8,6 +8,7 @@ part of '../reciter_model.dart';
 
 ReciterModel _$ReciterModelFromJson(Map<String, dynamic> json) => ReciterModel(
   json['madzhab'] as String?,
+  (json['id'] as num).toInt(),
   name: json['name'] as String,
   rewaya: json['rewaya'] as String?,
   domicile: json['domicile'] as String?,
@@ -16,6 +17,7 @@ ReciterModel _$ReciterModelFromJson(Map<String, dynamic> json) => ReciterModel(
 
 Map<String, dynamic> _$ReciterModelToJson(ReciterModel instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'name': instance.name,
       'rewaya': instance.rewaya,
       'domicile': instance.domicile,

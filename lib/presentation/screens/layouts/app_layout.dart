@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:go_router/go_router.dart';
-import 'package:quran_tv/config/routes/route.dart';
 import 'package:quran_tv/presentation/components/navigation/app_navbar.dart';
 import 'package:quran_tv/presentation/screens/downloads/downloads_screen.dart';
 import 'package:quran_tv/presentation/screens/favorites/favorites_screen.dart';
@@ -89,8 +87,9 @@ class _AppLayoutState extends State<AppLayout> {
               },
               onKeyEvent: (node, event) {
                 if (event is KeyDownEvent) {
+                  print("Enter ${mainFocusNode.focusedChild}");
                   if (event.logicalKey == LogicalKeyboardKey.arrowUp &&
-                      mainFocusNode.hasFocus) {
+                      (mainFocusNode.focusedChild?.children.first.hasFocus == true || mainFocusNode.focusedChild?.hasPrimaryFocus == true)) {
                     navbarFocusNode.requestFocus();
                     return KeyEventResult.handled;
                   }

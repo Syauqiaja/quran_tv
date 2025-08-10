@@ -1,36 +1,44 @@
-[
+{
+  "data" : [
     {
-    "name": "Abdurrahman Al Sudais",
-    "rewaya": "Hafs 'an 'Asim",
-    "domicile": "Saudi Arabia",
-    "madzhab": "Hanbali",
-    "image_url": "assets/images/reciters/Abdurrahman as-Sudais.png"
-  },
-  {
-    "name": "Mishary Rashid Alafasy",
-    "rewaya": "Hafs 'an 'Asim",
-    "domicile": "Kuwait",
-    "madzhab": "Hanbali",
-    "image_url": "assets/images/reciters/Mishary Rashid Alafasy.png"
-  },
-  {
-    "name": "Abu Bakr Al Shatri",
-    "rewaya": "Hafs 'an 'Asim",
-    "domicile": "Saudi Arabia",
-    "madzhab": "Shafi'i",
-    "image_url": "assets/images/reciters/Abu Bakr Al Shatri.png"
-  },
-  {
-    "name": "Ali Jaber",
-    "rewaya": "Hafs 'an 'Asim",
-    "domicile": "Saudi Arabia",
-    "madzhab": "Shafi'i",
-    "image_url": "assets/images/reciters/Ali Jaber.png"
-  },  {
-    "name": "Yasser Al Dossari",
-    "rewaya": "Hafs 'an 'Asim",
-    "domicile": "Saudi Arabia",
-    "madzhab": "Hanbali",
-    "image_url": "assets/images/reciters/Yasser Al Dossari.png"
-  }
-]
+      "id" : 0,
+      "name": "Abdurrahman Al Sudais",
+      "rewaya": "Hafs 'an 'Asim",
+      "domicile": "Saudi Arabia",
+      "madzhab": "Hanbali",
+      "image_url": "assets/images/reciters/Abdurrahman as-Sudais.png"
+    },
+    {
+      "id" : 1,
+      "name": "Mishary Rashid Alafasy",
+      "rewaya": "Hafs 'an 'Asim",
+      "domicile": "Kuwait",
+      "madzhab": "Hanbali",
+      "image_url": "assets/images/reciters/Mishary Rashid Alafasy.png"
+    },
+    {
+      "id" : 2,
+      "name": "Abu Bakr Al Shatri",
+      "rewaya": "Hafs 'an 'Asim",
+      "domicile": "Saudi Arabia",
+      "madzhab": "Shafi'i",
+      "image_url": "assets/images/reciters/Abu Bakr Al Shatri.png"
+    },
+    {
+      "id" : 3,
+      "name": "Ali Jaber",
+      "rewaya": "Hafs 'an 'Asim",
+      "domicile": "Saudi Arabia",
+      "madzhab": "Shafi'i",
+      "image_url": "assets/images/reciters/Ali Jaber.png"
+    },  
+    {
+      "id" : 4,
+      "name": "Yasser Al Dossari",
+      "rewaya": "Hafs 'an 'Asim",
+      "domicile": "Saudi Arabia",
+      "madzhab": "Hanbali",
+      "image_url": "assets/images/reciters/Yasser Al Dossari.png"
+    }
+  ]
+}

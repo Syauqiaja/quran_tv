@@ -7,7 +7,7 @@ class AppNavbar extends StatefulWidget {
   final FocusScopeNode focusScopeNode;
   final FocusScopeNode parentNode;
 
-  AppNavbar({
+  const AppNavbar({
     super.key,
     required this.onRouteChange,
     required this.currentIndex,

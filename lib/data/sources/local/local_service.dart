@@ -8,12 +8,19 @@ import 'package:quran_tv/data/sources/result.dart';
 class LocalService {
   Future<Result<List<ReciterModel>>> getAllReciters({String? query}) async {
     try {
-      String data = await rootBundle.loadString("assets/raw/reciters.json");
-      List<Map<String, dynamic>> result = jsonDecode(data);
-      return Result.success(result.map((e) => ReciterModel.fromJson(e)).toList());
+      final data = await rootBundle.loadString("assets/raw/reciters.json");
+      final Map<String, dynamic> result = jsonDecode(data);
+      final List<dynamic> parsedResult = result['data'] as List<dynamic>;
+
+      final reciters = parsedResult
+          .map((e) => ReciterModel.fromJson(e as Map<String, dynamic>))
+          .toList();
+
+      return Result.success(reciters);
     } catch (e, s) {
       debugPrintStack(stackTrace: s);
-      return Result.error(e as Exception);
-    } 
+      // ensure any error becomes an Exception
+      return Result.error(e);
+    }
   }
 }

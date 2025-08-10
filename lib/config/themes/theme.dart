@@ -6,6 +6,42 @@ final ThemeData darkTheme = ThemeData(
   primaryColor: Color(0xFF239BAF),
   focusColor: Colors.white,
   highlightColor: Color(0xFF239BAF).withAlpha(45),
+  splashColor: Color(0xFF239BAF).withAlpha(45),
+  outlinedButtonTheme: OutlinedButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+        if (states.contains(WidgetState.focused)) {
+          return Colors.white; // Focused = white background
+        }
+        return Colors.transparent; // Unfocused = transparent
+      }),
+      side: WidgetStateProperty.resolveWith<BorderSide?>((states) {
+        if (states.contains(WidgetState.focused)) {
+          return BorderSide(color: Colors.transparent); // No border on focus
+        }
+        return BorderSide(color: Colors.white); // White border when unfocused
+      }),
+      foregroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+        if (states.contains(WidgetState.focused)) {
+          return Color(0xFF0F1014); // Text/Icon black when focused
+        }
+        return Colors.white; // Text/Icon white when unfocused
+      }),
+      iconSize: WidgetStateProperty.all(24),
+      padding: WidgetStateProperty.all(
+        EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+      ),
+      animationDuration: Duration(milliseconds: 50),
+      minimumSize: WidgetStateProperty.all(Size.zero),
+    ),
+  ),
+  inputDecorationTheme: InputDecorationTheme(
+    focusedBorder: OutlineInputBorder(
+      borderSide: BorderSide(color: Color(0xFF239BAF), width: 2),
+      borderRadius: BorderRadius.circular(16),
+    ),
+  ),
+  textSelectionTheme: TextSelectionThemeData(cursorColor: Colors.white),
   cardColor: Color(0xFF0F1726),
   fontFamily: 'Roboto',
   textTheme: const TextTheme(
