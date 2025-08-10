@@ -38,7 +38,7 @@ class _ReciterCardItemState extends State<ReciterCardItem> {
       onFocusChange: _onFocusChange,
       onKeyEvent: (node, event) {
         if(event is KeyDownEvent && event.logicalKey == LogicalKeyboardKey.select && hasFocus){
-            ReciterDetailRoute.go(context, id: widget.data.id);
+            ReciterDetailRoute.push(context, id: widget.data.id);
             return KeyEventResult.handled;
         }
 
@@ -50,7 +50,7 @@ class _ReciterCardItemState extends State<ReciterCardItem> {
         duration: Duration(milliseconds: 200),
         child: GestureDetector(
           onTap: () {
-            ReciterDetailRoute.go(context, id: widget.data.id);
+            ReciterDetailRoute.push(context, id: widget.data.id);
           },
           child: Container(
             width: 300,

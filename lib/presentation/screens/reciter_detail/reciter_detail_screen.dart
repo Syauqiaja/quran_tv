@@ -209,6 +209,9 @@ final class ReciterDetailRoute extends RouteWrapper {
   static go(BuildContext context, {required int id}) =>
       context.goNamed(routeName, queryParameters: queryParams(id: id));
 
+  static push(BuildContext context, {required int id}) =>
+      context.pushNamed(routeName, queryParameters: queryParams(id: id));
+
   static Widget _builder(BuildContext context, GoRouterState state) {
     final id = int.tryParse(state.uri.queryParameters['id'] ?? '');
     if (id == null) {

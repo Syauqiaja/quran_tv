@@ -39,6 +39,7 @@ class _PlaylistListState extends State<PlaylistList> {
           _playlistFocused = value;
         });
         widget.onFocusChange?.call(value);
+        print(widget.focusScopeNode);
       },
       onKeyEvent: (node, event) {
         if (event is KeyDownEvent && _playlistFocused) {
@@ -56,18 +57,22 @@ class _PlaylistListState extends State<PlaylistList> {
         }
         return KeyEventResult.ignored;
       },
-      child: CustomScrollView(
-        slivers: [
-          SliverPadding(
-            padding: EdgeInsetsGeometry.symmetric(horizontal: 16, vertical: 16),
-            sliver: SliverList.builder(
-              itemCount: 10,
-              itemBuilder: (context, index) {
-                return PlaylistItemWidget(focusNode: _items[index]);
-              },
+      child: FocusTraversalGroup(
+        policy: OrderedTraversalPolicy(),
+        child: CustomScrollView(
+          slivers: [
+            SliverPadding(padding: EdgeInsets.only(top: 24)),
+            SliverPadding(
+              padding: EdgeInsetsGeometry.symmetric(horizontal: 16, vertical: 16),
+              sliver: SliverList.builder(
+                itemCount: 10,
+                itemBuilder: (context, index) {
+                  return PlaylistItemWidget(focusNode: _items[index]);
+                },
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

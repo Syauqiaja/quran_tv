@@ -29,6 +29,7 @@ class _BackNavButtonState extends State<BackNavButton> {
           if (event is KeyDownEvent &&
               event.logicalKey == LogicalKeyboardKey.select &&
               widget.focusNode.hasFocus) {
+                print("Back button pressed");
             context.pop();
             return KeyEventResult.handled;
           }
