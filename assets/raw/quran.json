@@ -1,39 +1,914 @@
 [
-  { "title": "An-Naba", "type": "Makiyah", "total_ayahs": 40, "total_lines": 2, "duration": 260 },
-  { "title": "An-Nazi'at", "type": "Makiyah", "total_ayahs": 46, "total_lines": 2, "duration": 270 },
-  { "title": "'Abasa", "type": "Makiyah", "total_ayahs": 42, "total_lines": 2, "duration": 250 },
-  { "title": "At-Takwir", "type": "Makiyah", "total_ayahs": 29, "total_lines": 1, "duration": 180 },
-  { "title": "Al-Infitar", "type": "Makiyah", "total_ayahs": 19, "total_lines": 1, "duration": 130 },
-  { "title": "Al-Mutaffifin", "type": "Makiyah", "total_ayahs": 36, "total_lines": 2, "duration": 210 },
-  { "title": "Al-Inshiqaq", "type": "Makiyah", "total_ayahs": 25, "total_lines": 1, "duration": 160 },
-  { "title": "Al-Buruj", "type": "Makiyah", "total_ayahs": 22, "total_lines": 1, "duration": 150 },
-  { "title": "At-Tariq", "type": "Makiyah", "total_ayahs": 17, "total_lines": 1, "duration": 120 },
-  { "title": "Al-A'la", "type": "Makiyah", "total_ayahs": 19, "total_lines": 1, "duration": 110 },
-  { "title": "Al-Ghashiyah", "type": "Makiyah", "total_ayahs": 26, "total_lines": 1, "duration": 150 },
-  { "title": "Al-Fajr", "type": "Makiyah", "total_ayahs": 30, "total_lines": 2, "duration": 190 },
-  { "title": "Al-Balad", "type": "Makiyah", "total_ayahs": 20, "total_lines": 1, "duration": 130 },
-  { "title": "Ash-Shams", "type": "Makiyah", "total_ayahs": 15, "total_lines": 1, "duration": 90 },
-  { "title": "Al-Lail", "type": "Makiyah", "total_ayahs": 21, "total_lines": 1, "duration": 110 },
-  { "title": "Ad-Duhaa", "type": "Makiyah", "total_ayahs": 11, "total_lines": 1, "duration": 60 },
-  { "title": "Ash-Sharh", "type": "Makiyah", "total_ayahs": 8, "total_lines": 1, "duration": 50 },
-  { "title": "At-Tin", "type": "Makiyah", "total_ayahs": 8, "total_lines": 1, "duration": 40 },
-  { "title": "Al-'Alaq", "type": "Makiyah", "total_ayahs": 19, "total_lines": 1, "duration": 90 },
-  { "title": "Al-Qadr", "type": "Makiyah", "total_ayahs": 5, "total_lines": 1, "duration": 30 },
-  { "title": "Al-Bayyina", "type": "Madaniyah", "total_ayahs": 8, "total_lines": 1, "duration": 60 },
-  { "title": "Az-Zalzalah", "type": "Madaniyah", "total_ayahs": 8, "total_lines": 1, "duration": 40 },
-  { "title": "Al-Adiyat", "type": "Makiyah", "total_ayahs": 11, "total_lines": 1, "duration": 50 },
-  { "title": "Al-Qari'ah", "type": "Makiyah", "total_ayahs": 11, "total_lines": 1, "duration": 45 },
-  { "title": "At-Takathur", "type": "Makiyah", "total_ayahs": 8, "total_lines": 1, "duration": 40 },
-  { "title": "Al-Asr", "type": "Makiyah", "total_ayahs": 3, "total_lines": 1, "duration": 20 },
-  { "title": "Al-Humazah", "type": "Makiyah", "total_ayahs": 9, "total_lines": 1, "duration": 35 },
-  { "title": "Al-Fil", "type": "Makiyah", "total_ayahs": 5, "total_lines": 1, "duration": 25 },
-  { "title": "Quraish", "type": "Makiyah", "total_ayahs": 4, "total_lines": 1, "duration": 20 },
-  { "title": "Al-Ma'un", "type": "Makiyah", "total_ayahs": 7, "total_lines": 1, "duration": 30 },
-  { "title": "Al-Kawthar", "type": "Makiyah", "total_ayahs": 3, "total_lines": 1, "duration": 15 },
-  { "title": "Al-Kafirun", "type": "Makiyah", "total_ayahs": 6, "total_lines": 1, "duration": 30 },
-  { "title": "An-Nasr", "type": "Madaniyah", "total_ayahs": 3, "total_lines": 1, "duration": 20 },
-  { "title": "Al-Masad", "type": "Makiyah", "total_ayahs": 5, "total_lines": 1, "duration": 25 },
-  { "title": "Al-Ikhlas", "type": "Makiyah", "total_ayahs": 4, "total_lines": 1, "duration": 15 },
-  { "title": "Al-Falaq", "type": "Makiyah", "total_ayahs": 5, "total_lines": 1, "duration": 20 },
-  { "title": "An-Nas", "type": "Makiyah", "total_ayahs": 6, "total_lines": 1, "duration": 25 }
+  {
+    "number": 1,
+    "title": "Al-Fatihah",
+    "type": "Meccan",
+    "total_ayahs": 7,
+    "total_lines": 14,
+    "duration": 35
+  },
+  {
+    "number": 2,
+    "title": "Al-Baqarah",
+    "type": "Medinan",
+    "total_ayahs": 286,
+    "total_lines": 572,
+    "duration": 1430
+  },
+  {
+    "number": 3,
+    "title": "Al-Imran",
+    "type": "Medinan",
+    "total_ayahs": 200,
+    "total_lines": 400,
+    "duration": 1000
+  },
+  {
+    "number": 4,
+    "title": "An-Nisa",
+    "type": "Medinan",
+    "total_ayahs": 176,
+    "total_lines": 352,
+    "duration": 880
+  },
+  {
+    "number": 5,
+    "title": "Al-Ma'idah",
+    "type": "Medinan",
+    "total_ayahs": 120,
+    "total_lines": 240,
+    "duration": 600
+  },
+  {
+    "number": 6,
+    "title": "Al-An'am",
+    "type": "Meccan",
+    "total_ayahs": 165,
+    "total_lines": 330,
+    "duration": 825
+  },
+  {
+    "number": 7,
+    "title": "Al-A'raf",
+    "type": "Meccan",
+    "total_ayahs": 206,
+    "total_lines": 412,
+    "duration": 1030
+  },
+  {
+    "number": 8,
+    "title": "Al-Anfal",
+    "type": "Medinan",
+    "total_ayahs": 75,
+    "total_lines": 150,
+    "duration": 375
+  },
+  {
+    "number": 9,
+    "title": "At-Tawbah",
+    "type": "Medinan",
+    "total_ayahs": 129,
+    "total_lines": 258,
+    "duration": 645
+  },
+  {
+    "number": 10,
+    "title": "Yunus",
+    "type": "Meccan",
+    "total_ayahs": 109,
+    "total_lines": 218,
+    "duration": 545
+  },
+  {
+    "number": 11,
+    "title": "Hud",
+    "type": "Meccan",
+    "total_ayahs": 123,
+    "total_lines": 246,
+    "duration": 615
+  },
+  {
+    "number": 12,
+    "title": "Yusuf",
+    "type": "Meccan",
+    "total_ayahs": 111,
+    "total_lines": 222,
+    "duration": 555
+  },
+  {
+    "number": 13,
+    "title": "Ar-Ra'd",
+    "type": "Medinan",
+    "total_ayahs": 43,
+    "total_lines": 86,
+    "duration": 215
+  },
+  {
+    "number": 14,
+    "title": "Ibrahim",
+    "type": "Meccan",
+    "total_ayahs": 52,
+    "total_lines": 104,
+    "duration": 260
+  },
+  {
+    "number": 15,
+    "title": "Al-Hijr",
+    "type": "Meccan",
+    "total_ayahs": 99,
+    "total_lines": 198,
+    "duration": 495
+  },
+  {
+    "number": 16,
+    "title": "An-Nahl",
+    "type": "Meccan",
+    "total_ayahs": 128,
+    "total_lines": 256,
+    "duration": 640
+  },
+  {
+    "number": 17,
+    "title": "Al-Isra",
+    "type": "Meccan",
+    "total_ayahs": 111,
+    "total_lines": 222,
+    "duration": 555
+  },
+  {
+    "number": 18,
+    "title": "Al-Kahf",
+    "type": "Meccan",
+    "total_ayahs": 110,
+    "total_lines": 220,
+    "duration": 550
+  },
+  {
+    "number": 19,
+    "title": "Maryam",
+    "type": "Meccan",
+    "total_ayahs": 98,
+    "total_lines": 196,
+    "duration": 490
+  },
+  {
+    "number": 20,
+    "title": "Taha",
+    "type": "Meccan",
+    "total_ayahs": 135,
+    "total_lines": 270,
+    "duration": 675
+  },
+  {
+    "number": 21,
+    "title": "Al-Anbiya",
+    "type": "Meccan",
+    "total_ayahs": 112,
+    "total_lines": 224,
+    "duration": 560
+  },
+  {
+    "number": 22,
+    "title": "Al-Hajj",
+    "type": "Medinan",
+    "total_ayahs": 78,
+    "total_lines": 156,
+    "duration": 390
+  },
+  {
+    "number": 23,
+    "title": "Al-Mu'minun",
+    "type": "Meccan",
+    "total_ayahs": 118,
+    "total_lines": 236,
+    "duration": 590
+  },
+  {
+    "number": 24,
+    "title": "An-Nur",
+    "type": "Medinan",
+    "total_ayahs": 64,
+    "total_lines": 128,
+    "duration": 320
+  },
+  {
+    "number": 25,
+    "title": "Al-Furqan",
+    "type": "Meccan",
+    "total_ayahs": 77,
+    "total_lines": 154,
+    "duration": 385
+  },
+  {
+    "number": 26,
+    "title": "Ash-Shu'ara",
+    "type": "Meccan",
+    "total_ayahs": 227,
+    "total_lines": 454,
+    "duration": 1135
+  },
+  {
+    "number": 27,
+    "title": "An-Naml",
+    "type": "Meccan",
+    "total_ayahs": 93,
+    "total_lines": 186,
+    "duration": 465
+  },
+  {
+    "number": 28,
+    "title": "Al-Qasas",
+    "type": "Meccan",
+    "total_ayahs": 88,
+    "total_lines": 176,
+    "duration": 440
+  },
+  {
+    "number": 29,
+    "title": "Al-Ankabut",
+    "type": "Meccan",
+    "total_ayahs": 69,
+    "total_lines": 138,
+    "duration": 345
+  },
+  {
+    "number": 30,
+    "title": "Ar-Rum",
+    "type": "Meccan",
+    "total_ayahs": 60,
+    "total_lines": 120,
+    "duration": 300
+  },
+  {
+    "number": 31,
+    "title": "Luqman",
+    "type": "Meccan",
+    "total_ayahs": 34,
+    "total_lines": 68,
+    "duration": 170
+  },
+  {
+    "number": 32,
+    "title": "As-Sajda",
+    "type": "Meccan",
+    "total_ayahs": 30,
+    "total_lines": 60,
+    "duration": 150
+  },
+  {
+    "number": 33,
+    "title": "Al-Ahzab",
+    "type": "Medinan",
+    "total_ayahs": 73,
+    "total_lines": 146,
+    "duration": 365
+  },
+  {
+    "number": 34,
+    "title": "Saba",
+    "type": "Meccan",
+    "total_ayahs": 54,
+    "total_lines": 108,
+    "duration": 270
+  },
+  {
+    "number": 35,
+    "title": "Fatir",
+    "type": "Meccan",
+    "total_ayahs": 45,
+    "total_lines": 90,
+    "duration": 225
+  },
+  {
+    "number": 36,
+    "title": "Ya-Sin",
+    "type": "Meccan",
+    "total_ayahs": 83,
+    "total_lines": 166,
+    "duration": 415
+  },
+  {
+    "number": 37,
+    "title": "As-Saffat",
+    "type": "Meccan",
+    "total_ayahs": 182,
+    "total_lines": 364,
+    "duration": 910
+  },
+  {
+    "number": 38,
+    "title": "Sad",
+    "type": "Meccan",
+    "total_ayahs": 88,
+    "total_lines": 176,
+    "duration": 440
+  },
+  {
+    "number": 39,
+    "title": "Az-Zumar",
+    "type": "Meccan",
+    "total_ayahs": 75,
+    "total_lines": 150,
+    "duration": 375
+  },
+  {
+    "number": 40,
+    "title": "Ghafir",
+    "type": "Meccan",
+    "total_ayahs": 85,
+    "total_lines": 170,
+    "duration": 425
+  },
+  {
+    "number": 41,
+    "title": "Fussilat",
+    "type": "Meccan",
+    "total_ayahs": 54,
+    "total_lines": 108,
+    "duration": 270
+  },
+  {
+    "number": 42,
+    "title": "Ash-Shura",
+    "type": "Meccan",
+    "total_ayahs": 53,
+    "total_lines": 106,
+    "duration": 265
+  },
+  {
+    "number": 43,
+    "title": "Az-Zukhruf",
+    "type": "Meccan",
+    "total_ayahs": 89,
+    "total_lines": 178,
+    "duration": 445
+  },
+  {
+    "number": 44,
+    "title": "Ad-Dukhan",
+    "type": "Meccan",
+    "total_ayahs": 59,
+    "total_lines": 118,
+    "duration": 295
+  },
+  {
+    "number": 45,
+    "title": "Al-Jathiyah",
+    "type": "Meccan",
+    "total_ayahs": 37,
+    "total_lines": 74,
+    "duration": 185
+  },
+  {
+    "number": 46,
+    "title": "Al-Ahqaf",
+    "type": "Meccan",
+    "total_ayahs": 35,
+    "total_lines": 70,
+    "duration": 175
+  },
+  {
+    "number": 47,
+    "title": "Muhammad",
+    "type": "Medinan",
+    "total_ayahs": 38,
+    "total_lines": 76,
+    "duration": 190
+  },
+  {
+    "number": 48,
+    "title": "Al-Fath",
+    "type": "Medinan",
+    "total_ayahs": 29,
+    "total_lines": 58,
+    "duration": 145
+  },
+  {
+    "number": 49,
+    "title": "Al-Hujurat",
+    "type": "Medinan",
+    "total_ayahs": 18,
+    "total_lines": 36,
+    "duration": 90
+  },
+  {
+    "number": 50,
+    "title": "Qaf",
+    "type": "Meccan",
+    "total_ayahs": 45,
+    "total_lines": 90,
+    "duration": 225
+  },
+  {
+    "number": 51,
+    "title": "Adh-Dhariyat",
+    "type": "Meccan",
+    "total_ayahs": 60,
+    "total_lines": 120,
+    "duration": 300
+  },
+  {
+    "number": 52,
+    "title": "At-Tur",
+    "type": "Meccan",
+    "total_ayahs": 49,
+    "total_lines": 98,
+    "duration": 245
+  },
+  {
+    "number": 53,
+    "title": "An-Najm",
+    "type": "Meccan",
+    "total_ayahs": 62,
+    "total_lines": 124,
+    "duration": 310
+  },
+  {
+    "number": 54,
+    "title": "Al-Qamar",
+    "type": "Meccan",
+    "total_ayahs": 55,
+    "total_lines": 110,
+    "duration": 275
+  },
+  {
+    "number": 55,
+    "title": "Ar-Rahman",
+    "type": "Medinan",
+    "total_ayahs": 78,
+    "total_lines": 156,
+    "duration": 390
+  },
+  {
+    "number": 56,
+    "title": "Al-Waqia",
+    "type": "Meccan",
+    "total_ayahs": 96,
+    "total_lines": 192,
+    "duration": 480
+  },
+  {
+    "number": 57,
+    "title": "Al-Hadid",
+    "type": "Medinan",
+    "total_ayahs": 29,
+    "total_lines": 58,
+    "duration": 145
+  },
+  {
+    "number": 58,
+    "title": "Al-Mujadila",
+    "type": "Medinan",
+    "total_ayahs": 22,
+    "total_lines": 44,
+    "duration": 110
+  },
+  {
+    "number": 59,
+    "title": "Al-Hashr",
+    "type": "Medinan",
+    "total_ayahs": 24,
+    "total_lines": 48,
+    "duration": 120
+  },
+  {
+    "number": 60,
+    "title": "Al-Mumtahina",
+    "type": "Medinan",
+    "total_ayahs": 13,
+    "total_lines": 26,
+    "duration": 65
+  },
+  {
+    "number": 61,
+    "title": "As-Saff",
+    "type": "Medinan",
+    "total_ayahs": 14,
+    "total_lines": 28,
+    "duration": 70
+  },
+  {
+    "number": 62,
+    "title": "Al-Jumu'a",
+    "type": "Medinan",
+    "total_ayahs": 11,
+    "total_lines": 22,
+    "duration": 55
+  },
+  {
+    "number": 63,
+    "title": "Al-Munafiqoon",
+    "type": "Medinan",
+    "total_ayahs": 11,
+    "total_lines": 22,
+    "duration": 55
+  },
+  {
+    "number": 64,
+    "title": "At-Taghabun",
+    "type": "Medinan",
+    "total_ayahs": 18,
+    "total_lines": 36,
+    "duration": 90
+  },
+  {
+    "number": 65,
+    "title": "At-Talaq",
+    "type": "Medinan",
+    "total_ayahs": 12,
+    "total_lines": 24,
+    "duration": 60
+  },
+  {
+    "number": 66,
+    "title": "At-Tahrim",
+    "type": "Medinan",
+    "total_ayahs": 12,
+    "total_lines": 24,
+    "duration": 60
+  },
+  {
+    "number": 67,
+    "title": "Al-Mulk",
+    "type": "Meccan",
+    "total_ayahs": 30,
+    "total_lines": 60,
+    "duration": 150
+  },
+  {
+    "number": 68,
+    "title": "Al-Qalam",
+    "type": "Meccan",
+    "total_ayahs": 52,
+    "total_lines": 104,
+    "duration": 260
+  },
+  {
+    "number": 69,
+    "title": "Al-Haqqah",
+    "type": "Meccan",
+    "total_ayahs": 52,
+    "total_lines": 104,
+    "duration": 260
+  },
+  {
+    "number": 70,
+    "title": "Al-Ma'arij",
+    "type": "Meccan",
+    "total_ayahs": 44,
+    "total_lines": 88,
+    "duration": 220
+  },
+  {
+    "number": 71,
+    "title": "Nuh",
+    "type": "Meccan",
+    "total_ayahs": 28,
+    "total_lines": 56,
+    "duration": 140
+  },
+  {
+    "number": 72,
+    "title": "Al-Jinn",
+    "type": "Meccan",
+    "total_ayahs": 28,
+    "total_lines": 56,
+    "duration": 140
+  },
+  {
+    "number": 73,
+    "title": "Al-Muzzammil",
+    "type": "Meccan",
+    "total_ayahs": 20,
+    "total_lines": 40,
+    "duration": 100
+  },
+  {
+    "number": 74,
+    "title": "Al-Muddathir",
+    "type": "Meccan",
+    "total_ayahs": 56,
+    "total_lines": 112,
+    "duration": 280
+  },
+  {
+    "number": 75,
+    "title": "Al-Qiyama",
+    "type": "Meccan",
+    "total_ayahs": 40,
+    "total_lines": 80,
+    "duration": 200
+  },
+  {
+    "number": 76,
+    "title": "Al-Insan",
+    "type": "Medinan",
+    "total_ayahs": 31,
+    "total_lines": 62,
+    "duration": 155
+  },
+  {
+    "number": 77,
+    "title": "Al-Mursalat",
+    "type": "Meccan",
+    "total_ayahs": 50,
+    "total_lines": 100,
+    "duration": 250
+  },
+  {
+    "number": 78,
+    "title": "An-Naba",
+    "type": "Meccan",
+    "total_ayahs": 40,
+    "total_lines": 80,
+    "duration": 200
+  },
+  {
+    "number": 79,
+    "title": "An-Nazi'at",
+    "type": "Meccan",
+    "total_ayahs": 46,
+    "total_lines": 92,
+    "duration": 230
+  },
+  {
+    "number": 80,
+    "title": "Abasa",
+    "type": "Meccan",
+    "total_ayahs": 42,
+    "total_lines": 84,
+    "duration": 210
+  },
+  {
+    "number": 81,
+    "title": "At-Takwir",
+    "type": "Meccan",
+    "total_ayahs": 29,
+    "total_lines": 58,
+    "duration": 145
+  },
+  {
+    "number": 82,
+    "title": "Al-Infitar",
+    "type": "Meccan",
+    "total_ayahs": 19,
+    "total_lines": 38,
+    "duration": 95
+  },
+  {
+    "number": 83,
+    "title": "Al-Mutaffifin",
+    "type": "Meccan",
+    "total_ayahs": 36,
+    "total_lines": 72,
+    "duration": 180
+  },
+  {
+    "number": 84,
+    "title": "Al-Inshiqaq",
+    "type": "Meccan",
+    "total_ayahs": 25,
+    "total_lines": 50,
+    "duration": 125
+  },
+  {
+    "number": 85,
+    "title": "Al-Buruj",
+    "type": "Meccan",
+    "total_ayahs": 22,
+    "total_lines": 44,
+    "duration": 110
+  },
+  {
+    "number": 86,
+    "title": "At-Tariq",
+    "type": "Meccan",
+    "total_ayahs": 17,
+    "total_lines": 34,
+    "duration": 85
+  },
+  {
+    "number": 87,
+    "title": "Al-Ala",
+    "type": "Meccan",
+    "total_ayahs": 19,
+    "total_lines": 38,
+    "duration": 95
+  },
+  {
+    "number": 88,
+    "title": "Al-Ghashiya",
+    "type": "Meccan",
+    "total_ayahs": 26,
+    "total_lines": 52,
+    "duration": 130
+  },
+  {
+    "number": 89,
+    "title": "Al-Fajr",
+    "type": "Meccan",
+    "total_ayahs": 30,
+    "total_lines": 60,
+    "duration": 150
+  },
+  {
+    "number": 90,
+    "title": "Al-Balad",
+    "type": "Meccan",
+    "total_ayahs": 20,
+    "total_lines": 40,
+    "duration": 100
+  },
+  {
+    "number": 91,
+    "title": "Ash-Shams",
+    "type": "Meccan",
+    "total_ayahs": 15,
+    "total_lines": 30,
+    "duration": 75
+  },
+  {
+    "number": 92,
+    "title": "Al-Lail",
+    "type": "Meccan",
+    "total_ayahs": 21,
+    "total_lines": 42,
+    "duration": 105
+  },
+  {
+    "number": 93,
+    "title": "Ad-Duhaa",
+    "type": "Meccan",
+    "total_ayahs": 11,
+    "total_lines": 22,
+    "duration": 55
+  },
+  {
+    "number": 94,
+    "title": "Ash-Sharh",
+    "type": "Meccan",
+    "total_ayahs": 8,
+    "total_lines": 16,
+    "duration": 40
+  },
+  {
+    "number": 95,
+    "title": "At-Tin",
+    "type": "Meccan",
+    "total_ayahs": 8,
+    "total_lines": 16,
+    "duration": 40
+  },
+  {
+    "number": 96,
+    "title": "Al-Alaq",
+    "type": "Meccan",
+    "total_ayahs": 19,
+    "total_lines": 38,
+    "duration": 95
+  },
+  {
+    "number": 97,
+    "title": "Al-Qadr",
+    "type": "Meccan",
+    "total_ayahs": 5,
+    "total_lines": 10,
+    "duration": 25
+  },
+  {
+    "number": 98,
+    "title": "Al-Bayyina",
+    "type": "Medinan",
+    "total_ayahs": 8,
+    "total_lines": 16,
+    "duration": 40
+  },
+  {
+    "number": 99,
+    "title": "Az-Zalzalah",
+    "type": "Medinan",
+    "total_ayahs": 8,
+    "total_lines": 16,
+    "duration": 40
+  },
+  {
+    "number": 100,
+    "title": "Al-Adiyat",
+    "type": "Meccan",
+    "total_ayahs": 11,
+    "total_lines": 22,
+    "duration": 55
+  },
+  {
+    "number": 101,
+    "title": "Al-Qari'a",
+    "type": "Meccan",
+    "total_ayahs": 11,
+    "total_lines": 22,
+    "duration": 55
+  },
+  {
+    "number": 102,
+    "title": "At-Takathur",
+    "type": "Meccan",
+    "total_ayahs": 8,
+    "total_lines": 16,
+    "duration": 40
+  },
+  {
+    "number": 103,
+    "title": "Al-Asr",
+    "type": "Meccan",
+    "total_ayahs": 3,
+    "total_lines": 6,
+    "duration": 15
+  },
+  {
+    "number": 104,
+    "title": "Al-Humazah",
+    "type": "Meccan",
+    "total_ayahs": 9,
+    "total_lines": 18,
+    "duration": 45
+  },
+  {
+    "number": 105,
+    "title": "Al-Fil",
+    "type": "Meccan",
+    "total_ayahs": 5,
+    "total_lines": 10,
+    "duration": 25
+  },
+  {
+    "number": 106,
+    "title": "Quraish",
+    "type": "Meccan",
+    "total_ayahs": 4,
+    "total_lines": 8,
+    "duration": 20
+  },
+  {
+    "number": 107,
+    "title": "Al-Ma'un",
+    "type": "Meccan",
+    "total_ayahs": 7,
+    "total_lines": 14,
+    "duration": 35
+  },
+  {
+    "number": 108,
+    "title": "Al-Kawthar",
+    "type": "Meccan",
+    "total_ayahs": 3,
+    "total_lines": 6,
+    "duration": 15
+  },
+  {
+    "number": 109,
+    "title": "Al-Kafiroon",
+    "type": "Meccan",
+    "total_ayahs": 6,
+    "total_lines": 12,
+    "duration": 30
+  },
+  {
+    "number": 110,
+    "title": "An-Nasr",
+    "type": "Medinan",
+    "total_ayahs": 3,
+    "total_lines": 6,
+    "duration": 15
+  },
+  {
+    "number": 111,
+    "title": "Al-Masad",
+    "type": "Meccan",
+    "total_ayahs": 5,
+    "total_lines": 10,
+    "duration": 25
+  },
+  {
+    "number": 112,
+    "title": "Al-Ikhlas",
+    "type": "Meccan",
+    "total_ayahs": 4,
+    "total_lines": 8,
+    "duration": 20
+  },
+  {
+    "number": 113,
+    "title": "Al-Falaq",
+    "type": "Meccan",
+    "total_ayahs": 5,
+    "total_lines": 10,
+    "duration": 25
+  },
+  {
+    "number": 114,
+    "title": "An-Nas",
+    "type": "Meccan",
+    "total_ayahs": 6,
+    "total_lines": 12,
+    "duration": 30
+  }
 ]

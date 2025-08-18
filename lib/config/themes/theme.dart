@@ -35,6 +35,43 @@ final ThemeData darkTheme = ThemeData(
       minimumSize: WidgetStateProperty.all(Size.zero),
     ),
   ),
+  iconButtonTheme: IconButtonThemeData(
+    style: ButtonStyle(
+      backgroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+        if (states.contains(WidgetState.focused)) {
+          return Colors.white; // Focused = white background
+        }
+        return Colors.transparent; // Unfocused = transparent
+      }),
+      foregroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
+        if (states.contains(WidgetState.focused)) {
+          return const Color(0xFF0F1014); // Icon black when focused
+        }
+        return Colors.white; // Icon white when unfocused
+      }),
+      iconSize: WidgetStateProperty.all(24),
+      animationDuration: const Duration(milliseconds: 50),
+      minimumSize: WidgetStateProperty.all(Size.zero),
+      shape: WidgetStateProperty.all(
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(
+            64,
+          ), // match outlined button shape
+        ),
+      ),
+
+      overlayColor: WidgetStateProperty.resolveWith<Color?>((states) {
+        if (states.contains(WidgetState.pressed)) {
+          return Colors.black.withAlpha(42); // Splash effect
+        }
+        if (states.contains(WidgetState.hovered)) {
+          return Colors.black.withAlpha(20); // Hover effect for web/desktop
+        }
+        return null;
+      }),
+    ),
+  ),
+
   inputDecorationTheme: InputDecorationTheme(
     focusedBorder: OutlineInputBorder(
       borderSide: BorderSide(color: Color(0xFF239BAF), width: 2),

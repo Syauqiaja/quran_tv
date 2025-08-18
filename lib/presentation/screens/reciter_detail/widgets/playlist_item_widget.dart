@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:quran_tv/core/utils/duration_extension.dart';
+import 'package:quran_tv/data/models/quran_model.dart';
+import 'package:quran_tv/presentation/screens/quran/quran_play_screen.dart';
 
 class PlaylistItemWidget extends StatefulWidget {
   final FocusScopeNode? focusNode;
-  const PlaylistItemWidget({super.key, this.focusNode});
+  final QuranModel quranModel;
+  const PlaylistItemWidget({super.key, this.focusNode, required this.quranModel});
 
   @override
   State<PlaylistItemWidget> createState() => _PlaylistItemWidgetState();
@@ -40,10 +44,10 @@ class _PlaylistItemWidgetState extends State<PlaylistItemWidget> {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Text("Al-Baqarah", style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  Text(widget.quranModel.title, style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                     fontWeight: hasFocus ? FontWeight.bold : FontWeight.normal
                   ),),
-                  Text("00:15:01", style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  Text(Duration(milliseconds: widget.quranModel.duration ?? 0).toPlaybackFormat(), style: Theme.of(context).textTheme.bodySmall?.copyWith(
                     color: hasFocus ? Colors.white : Colors.white60,
                   ),),
                 ],
@@ -53,6 +57,7 @@ class _PlaylistItemWidgetState extends State<PlaylistItemWidget> {
               opacity: hasFocus ? 1 : 0,
               duration: Duration(milliseconds: 100),
               child: OutlinedButton(onPressed: (){
+                QuranPlayRoute.push(context, surah: widget.quranModel.number, reciterId: 1);
               }, child: Text("Play")),
             ),
             IconButton(onPressed: () {}, icon: Icon(Icons.favorite_outline), style: IconButton.styleFrom(

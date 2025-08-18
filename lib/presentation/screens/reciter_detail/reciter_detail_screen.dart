@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quran_tv/config/routes/app_route.dart';
 import 'package:quran_tv/core/constants/assets.dart';
 import 'package:quran_tv/core/utils/route_wrapper.dart';
 import 'package:quran_tv/presentation/components/buttons/back_nav_button.dart';
+import 'package:quran_tv/presentation/controller/quran_list/quran_list_bloc.dart';
+import 'package:quran_tv/presentation/screens/quran/quran_play_screen.dart';
 import 'package:quran_tv/presentation/screens/reciter_detail/widgets/playlist_item_widget.dart';
 import 'package:quran_tv/presentation/screens/reciter_detail/widgets/playlist_list.dart';
 
@@ -22,8 +25,16 @@ class _ReciterDetailScreenState extends State<ReciterDetailScreen> {
     debugLabel: "Playlist",
   );
   final ScrollController _scrollController = ScrollController();
+  late QuranListBloc _quranListBloc;
 
   bool _playlistFocused = false;
+
+  @override
+  void initState() {
+    _quranListBloc = BlocProvider.of(context);
+    _quranListBloc.add(QuranListGetAll());
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -172,7 +183,10 @@ class _ReciterDetailScreenState extends State<ReciterDetailScreen> {
           spacing: 8,
           children: [
             OutlinedButton.icon(
-              onPressed: () {},
+              onPressed: () {
+                print("Going tp quranscre");
+                QuranPlayRoute.push(context, surah: 1, reciterId: 2);
+              },
               label: Text("Play"),
               icon: Icon(Icons.play_arrow, size: 16),
               iconAlignment: IconAlignment.end,

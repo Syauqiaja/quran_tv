@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quran_tv/presentation/controller/quran_list/quran_list_bloc.dart';
 import 'package:quran_tv/presentation/screens/reciter_detail/widgets/playlist_item_widget.dart';
 
 class PlaylistList extends StatefulWidget {
@@ -17,10 +19,14 @@ class PlaylistList extends StatefulWidget {
 
 class _PlaylistListState extends State<PlaylistList> {
   bool _playlistFocused = false;
-  final List<FocusScopeNode> _items = List.generate(
-    10,
-    (e) => FocusScopeNode(debugLabel: "Playlist Item $e"),
-  );
+  List<FocusScopeNode> _items = [];
+  late QuranListBloc _quranListBloc;
+
+  @override
+  void initState() {
+    _quranListBloc = BlocProvider.of<QuranListBloc>(context);
+    super.initState();
+  }
 
   @override
   void dispose() {
@@ -28,6 +34,18 @@ class _PlaylistListState extends State<PlaylistList> {
       item.dispose();
     }
     super.dispose();
+  }
+
+  void _syncFocusNodes(int length) {
+    // Dispose extra nodes
+    if (_items.length > length) {
+      _items.sublist(length).forEach((n) => n.dispose());
+      _items = _items.sublist(0, length);
+    }
+    // Add missing nodes
+    while (_items.length < length) {
+      _items.add(FocusScopeNode(debugLabel: "Playlist Item ${_items.length}"));
+    }
   }
 
   @override
@@ -39,7 +57,6 @@ class _PlaylistListState extends State<PlaylistList> {
           _playlistFocused = value;
         });
         widget.onFocusChange?.call(value);
-        print(widget.focusScopeNode);
       },
       onKeyEvent: (node, event) {
         if (event is KeyDownEvent && _playlistFocused) {
@@ -61,13 +78,31 @@ class _PlaylistListState extends State<PlaylistList> {
         policy: OrderedTraversalPolicy(),
         child: CustomScrollView(
           slivers: [
-            SliverPadding(padding: EdgeInsets.only(top: 24)),
+            const SliverPadding(padding: EdgeInsets.only(top: 24)),
             SliverPadding(
-              padding: EdgeInsetsGeometry.symmetric(horizontal: 16, vertical: 16),
-              sliver: SliverList.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return PlaylistItemWidget(focusNode: _items[index]);
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+              sliver: BlocBuilder<QuranListBloc, QuranListState>(
+                builder: (context, state) {
+                  if (state is QuranListSuccess) {
+                    _syncFocusNodes(state.data.length);
+
+                    return SliverList.builder(
+                      itemCount: state.data.length,
+                      itemBuilder: (context, index) {
+                        return PlaylistItemWidget(focusNode: _items[index], quranModel: state.data[index],);
+                      },
+                    );
+                  }
+
+                  return const SliverToBoxAdapter(
+                    child: Center(
+                      child: SizedBox(
+                        height: 32,
+                        width: 32,
+                        child: CircularProgressIndicator(color: Colors.white),
+                      ),
+                    ),
+                  );
                 },
               ),
             ),
