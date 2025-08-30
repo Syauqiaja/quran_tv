@@ -82,7 +82,17 @@ class _AppNavbarState extends State<AppNavbar> {
                         Spacer(),
                         IconButton(onPressed: (){
                           SettingsRoute.push(context);
-                        }, icon: Icon(Icons.settings))
+                        }, icon: Icon(Icons.settings)),
+                        const SizedBox(width: 8),
+                        OutlinedButton(onPressed: (){
+
+                        }, child: Row(
+                          spacing: 8,
+                          children: [
+                            Text("QuranTV Pro"),
+                            Icon(Icons.menu_book_rounded)
+                          ],
+                        ))
                       ],
                     ),
                   ),
