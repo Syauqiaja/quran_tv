@@ -49,6 +49,8 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 80),
+              Text("Favorite Contents", style: Theme.of(context).textTheme.displayMedium,),
+              const SizedBox(height: 16),
               Center(
                 child: ConstrainedBox(
                   constraints: BoxConstraints(maxWidth: 500),
@@ -70,7 +72,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                         if (_reciterFocusNodes[0].hasFocus) {
                           itemHasFocus = true;
                         }
-                        
+
                         if (event.logicalKey == LogicalKeyboardKey.arrowUp) {
                           if (itemHasFocus) {
                             _searchFocus.requestFocus();
@@ -97,6 +99,7 @@ class _FavoritesScreenState extends State<FavoritesScreen> {
                                 index: index,
                                 focusNode: _reciterFocusNodes[index],
                                 data: data,
+                                icon: Icon(Icons.favorite_border_outlined),
                               );
                             },
                           );
