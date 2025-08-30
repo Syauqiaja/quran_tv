@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
+const Color primaryColor = Color(0xFF239BAF);
+
 final ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
   scaffoldBackgroundColor: Color(0xFF0F1014),
-  primaryColor: Color(0xFF239BAF),
+  primaryColor: primaryColor,
   focusColor: Colors.white,
-  highlightColor: Color(0xFF239BAF).withAlpha(45),
-  splashColor: Color(0xFF239BAF).withAlpha(45),
+  highlightColor: primaryColor.withAlpha(45),
+  splashColor: primaryColor.withAlpha(45),
   outlinedButtonTheme: OutlinedButtonThemeData(
     style: ButtonStyle(
       backgroundColor: WidgetStateProperty.resolveWith<Color?>((states) {
@@ -34,6 +36,47 @@ final ThemeData darkTheme = ThemeData(
       animationDuration: Duration(milliseconds: 50),
       minimumSize: WidgetStateProperty.all(Size.zero),
     ),
+  ),
+  switchTheme: SwitchThemeData(
+    thumbColor: WidgetStateProperty.resolveWith<Color>((states) {
+      if (states.contains(WidgetState.selected)) {
+        return Colors.white; // Thumb color when switch is ON
+      }
+      return Colors.grey.shade400; // Thumb color when switch is OFF
+    }),
+    trackColor: WidgetStateProperty.resolveWith<Color>((states) {
+      if (states.contains(WidgetState.selected)) {
+        return const Color(0xFF239BAF); // Your main color when switch is ON
+      }
+      return Colors.transparent; // Track color when switch is OFF
+    }),
+    trackOutlineColor: WidgetStateProperty.resolveWith<Color>((states) {
+      if (states.contains(WidgetState.selected)) {
+        return const Color(0xFF239BAF); // Outline color when switch is ON
+      }
+      return Colors.grey.shade400; // Outline color when switch is OFF
+    }),
+    overlayColor: WidgetStateProperty.resolveWith<Color>((states) {
+      if (states.contains(WidgetState.pressed)) {
+        return const Color(0xFF239BAF).withOpacity(0.12); // Ripple effect color
+      }
+      if (states.contains(WidgetState.hovered)) {
+        return const Color(0xFF239BAF).withOpacity(0.08); // Hover effect color
+      }
+
+       // Focus effect color (important for TV)
+      if (states.contains(WidgetState.focused)) {
+        if(states.contains(WidgetState.selected)){
+          return const Color(
+            0xFF239BAF,
+          ).withAlpha(100);
+        }else{
+          return Colors.white.withAlpha(100);
+        }
+      }
+      return Colors.transparent;
+    }),
+    splashRadius: 24.0, // Size of the splash effect
   ),
   iconButtonTheme: IconButtonThemeData(
     style: ButtonStyle(
@@ -74,7 +117,7 @@ final ThemeData darkTheme = ThemeData(
 
   inputDecorationTheme: InputDecorationTheme(
     focusedBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Color(0xFF239BAF), width: 2),
+      borderSide: BorderSide(color: primaryColor, width: 2),
       borderRadius: BorderRadius.circular(16),
     ),
   ),
@@ -132,9 +175,11 @@ final ThemeData darkTheme = ThemeData(
     labelLarge: TextStyle(
       fontSize: 14.0,
       fontWeight: FontWeight.bold,
-      color: Color(0xFF239BAF),
+      color: primaryColor,
     ),
-    labelMedium: TextStyle(fontSize: 12.0, color: Color(0xFF239BAF)),
-    labelSmall: TextStyle(fontSize: 10.0, color: Color(0xFF239BAF)),
+    labelMedium: TextStyle(fontSize: 12.0, color: primaryColor),
+    labelSmall: TextStyle(fontSize: 10.0, color: primaryColor),
   ),
 );
+
+extension ThemeModeExtension on ThemeMode {}

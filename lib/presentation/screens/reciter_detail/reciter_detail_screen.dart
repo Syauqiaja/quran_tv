@@ -6,6 +6,7 @@ import 'package:quran_tv/config/routes/app_route.dart';
 import 'package:quran_tv/core/constants/assets.dart';
 import 'package:quran_tv/core/utils/route_wrapper.dart';
 import 'package:quran_tv/presentation/components/buttons/back_nav_button.dart';
+import 'package:quran_tv/presentation/components/layouts/app_scaffold.dart';
 import 'package:quran_tv/presentation/controller/quran_list/quran_list_bloc.dart';
 import 'package:quran_tv/presentation/screens/quran/quran_play_screen.dart';
 import 'package:quran_tv/presentation/screens/reciter_detail/widgets/playlist_item_widget.dart';
@@ -45,102 +46,84 @@ class _ReciterDetailScreenState extends State<ReciterDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Color(0xFF0F1726), Color(0xFF0F1726).withAlpha(0)],
-          begin: Alignment.topCenter,
-          end: Alignment.bottomCenter,
-        ),
-      ),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: PreferredSize(
-          preferredSize: Size(double.infinity, 64),
-          child: Row(
-            children: [
-              const SizedBox(width: 16),
-              BackNavButton(focusNode: _backButtonFocusNode),
-            ],
-          ),
-        ),
-        body: CustomScrollView(
-          controller: _scrollController,
-          slivers: [
-            SliverToBoxAdapter(
-              child: AnimatedContainer(
-                duration: Duration(milliseconds: 100),
-                padding: const EdgeInsets.only(left: 16.0, right: 16, top: 24),
-                height: 300,
-                child: Row(
-                  children: [
-                    Expanded(child: _buildReciterDetail(context)),
-                    Expanded(
-                      child: AnimatedOpacity(
-                        opacity: 1,
-                        duration: Duration(milliseconds: 100),
-                        child: _buildReciterImage(),
-                      ),
+    return AppScaffold(
+      backButtonFocusNode: _backButtonFocusNode,
+      body: CustomScrollView(
+        controller: _scrollController,
+        slivers: [
+          SliverToBoxAdapter(
+            child: AnimatedContainer(
+              duration: Duration(milliseconds: 100),
+              padding: const EdgeInsets.only(left: 16.0, right: 16, top: 24),
+              height: 300,
+              child: Row(
+                children: [
+                  Expanded(child: _buildReciterDetail(context)),
+                  Expanded(
+                    child: AnimatedOpacity(
+                      opacity: 1,
+                      duration: Duration(milliseconds: 100),
+                      child: _buildReciterImage(),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-            SliverFillRemaining(
-              child: Padding(
-                padding: EdgeInsetsGeometry.symmetric(horizontal: 16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Playlist : Abdurrahman as-Sudais",
-                      style: Theme.of(context).textTheme.titleMedium,
-                    ),
-                    Expanded(
-                      child: Opacity(
-                        opacity: _playlistFocused ? 1 : 0.5,
-                        child: ShaderMask(
-                          shaderCallback: (bounds) {
-                            return const LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors: [Colors.transparent, Colors.black],
-                              stops: [0, 0.1],
-                            ).createShader(bounds);
+          ),
+          SliverFillRemaining(
+            child: Padding(
+              padding: EdgeInsetsGeometry.symmetric(horizontal: 16),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Playlist : Abdurrahman as-Sudais",
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  Expanded(
+                    child: Opacity(
+                      opacity: _playlistFocused ? 1 : 0.5,
+                      child: ShaderMask(
+                        shaderCallback: (bounds) {
+                          return const LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [Colors.transparent, Colors.black],
+                            stops: [0, 0.1],
+                          ).createShader(bounds);
+                        },
+                        blendMode: BlendMode.dstIn,
+                        child: PlaylistList(
+                          focusScopeNode: _playlistFocusScopeNode,
+                          onFocusChange: (hasFocus) {
+                            setState(() {
+                              _playlistFocused = hasFocus;
+                            });
+                            if (hasFocus) {
+                              // Scroll to top of SliverFillRemaining
+                              _scrollController.animateTo(
+                                _scrollController.position.maxScrollExtent,
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeOut,
+                              );
+                            } else {
+                              // Scroll back to top of the list
+                              _scrollController.animateTo(
+                                0,
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeOut,
+                              );
+                            }
                           },
-                          blendMode: BlendMode.dstIn,
-                          child: PlaylistList(
-                            focusScopeNode: _playlistFocusScopeNode,
-                            onFocusChange: (hasFocus) {
-                              setState(() {
-                                _playlistFocused = hasFocus;
-                              });
-                              if (hasFocus) {
-                                // Scroll to top of SliverFillRemaining
-                                _scrollController.animateTo(
-                                  _scrollController.position.maxScrollExtent,
-                                  duration: const Duration(milliseconds: 300),
-                                  curve: Curves.easeOut,
-                                );
-                              } else {
-                                // Scroll back to top of the list
-                                _scrollController.animateTo(
-                                  0,
-                                  duration: const Duration(milliseconds: 300),
-                                  curve: Curves.easeOut,
-                                );
-                              }
-                            },
-                          ),
                         ),
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

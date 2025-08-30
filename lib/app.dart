@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
         title: 'Altara Quran TV',
         theme: darkTheme,
         routerConfig: router,
+        debugShowCheckedModeBanner: false,
       ),
     );
   }

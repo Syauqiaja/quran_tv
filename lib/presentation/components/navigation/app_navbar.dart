@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:quran_tv/presentation/screens/settings/settings_screen.dart';
 
 class AppNavbar extends StatefulWidget {
   final int currentIndex;
@@ -27,6 +28,7 @@ class _AppNavbarState extends State<AppNavbar> {
     FocusNode(debugLabel: 'Search Navlink'),
     FocusNode(debugLabel: 'Favorite Navlink'),
     FocusNode(debugLabel: 'Download Navlink'),
+    FocusNode(debugLabel: 'Setting Navlink'),
   ];
 
   @override
@@ -55,27 +57,33 @@ class _AppNavbarState extends State<AppNavbar> {
             children: [
               const CircleAvatar(radius: 20, backgroundColor: Colors.grey),
               const SizedBox(width: 16),
-              FocusScope(
-                node: widget.focusScopeNode,
-                onFocusChange: (hasFocus) {
-                  if (hasFocus) {
-                    print('Enter ${widget.focusScopeNode.debugLabel}');
-                    focusNodes[widget.currentIndex].requestFocus();
-                  } else {
-                    print('Exit ${widget.focusScopeNode.debugLabel}');
-                  }
-                },
-                descendantsAreFocusable: true,
-                child: FocusTraversalGroup(
-                  child: Row(
-                    children: List.generate(
-                      labels.length,
-                      (index) => _buildNavButton(
-                        context,
-                        label: labels[index],
-                        index: index,
-                        focusNode: focusNodes[index],
-                      ),
+              Expanded(
+                child: FocusScope(
+                  node: widget.focusScopeNode,
+                  onFocusChange: (hasFocus) {
+                    if (hasFocus) {
+                      print('Enter ${widget.focusScopeNode.debugLabel}');
+                      focusNodes[widget.currentIndex].requestFocus();
+                    } else {
+                      print('Exit ${widget.focusScopeNode.debugLabel}');
+                    }
+                  },
+                  descendantsAreFocusable: true,
+                  child: FocusTraversalGroup(
+                    child: Row(
+                      children: [
+                        for (int index = 0; index < labels.length; index++)
+                          _buildNavButton(
+                            context,
+                            label: labels[index],
+                            index: index,
+                            focusNode: focusNodes[index],
+                          ),
+                        Spacer(),
+                        IconButton(onPressed: (){
+                          SettingsRoute.push(context);
+                        }, icon: Icon(Icons.settings))
+                      ],
                     ),
                   ),
                 ),
@@ -134,7 +142,9 @@ class _AppNavbarState extends State<AppNavbar> {
                   decoration: BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
-                        color: hasFocus ? Colors.white : Colors.white.withAlpha(0 ),
+                        color: hasFocus
+                            ? Colors.white
+                            : Colors.white.withAlpha(0),
                       ),
                     ),
                   ),
