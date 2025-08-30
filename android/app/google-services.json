@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "939487481535",
+    "project_id": "qurantv-ac735",
+    "storage_bucket": "qurantv-ac735.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939487481535:android:b4037e71ac2ab05c39400a",
+        "android_client_info": {
+          "package_name": "com.example.quran_tv"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtwQVdgjUBGB9NXzWv6ovGbYjOJjydf5Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

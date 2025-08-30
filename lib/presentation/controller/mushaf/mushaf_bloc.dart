@@ -5,6 +5,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_sound/flutter_sound.dart';
+import 'package:quran_tv/core/di/injections.dart';
+import 'package:quran_tv/core/services/google_storage_service.dart';
 import 'package:quran_tv/data/models/quran_line_model.dart';
 import 'package:quran_tv/data/models/quran_model.dart';
 import 'package:quran_tv/data/sources/result.dart';
@@ -65,45 +67,18 @@ class MushafBloc extends Bloc<MushafEvent, MushafState> {
 
   Future _onMushafPlay(MushafPlay event, Emitter<MushafState> emit) async {
     if (state.stateType == MushafStateType.initial) {
-      await _copyAssetToFile('assets/quran/al-mulk/067.mp3')
-          .then((uint8list) {
-            flutterSoundPlayer?.startPlayer(
-              codec: Codec.mp3,
-              fromDataBuffer: uint8list,
-            );
-            emit.forEach(
-              flutterSoundPlayer!.onProgress!,
-              onData: (data) {
-                emit(
-                  state.copyWith(
-                    totalDuration: data.duration,
-                    playbackProgress: data.position,
-                  ),
-                );
-                if (state.nextLinePlaying?.startTimeMs != null) {
-                  print(data.position.inMilliseconds);
-                  if (data.position.inMilliseconds >
-                      state.nextLinePlaying!.startTimeMs) {
-                    emit(
-                      state.copyWith(
-                        currentLinePlaying: state.nextLinePlaying,
-                        nextLinePlaying:
-                            state.quranLineModel[state.quranLineModel.indexOf(
-                                  state.nextLinePlaying!,
-                                ) +
-                                1],
-                      ),
-                    );
-                  }
-                }
-                return state;
-              },
-            );
+      await getIt<GoogleStorageService>().getAudioTest().then((result){
+        if(result is Success){
+           _playAudio(result.value!, emit);
+        }else{
+          emit(state.copyWith(errorMessage: 'Failed to get audio : ${result.errorMessage}'));
+        }
+      });
 
-            flutterSoundPlayer?.setSubscriptionDuration(
-              Duration(milliseconds: 100),
-            );
-          });
+      // await _copyAssetToFile('assets/quran/al-mulk/067.mp3')
+      //     .then((uint8list) {
+      //       _playAudio(uint8list, emit);
+      //     });
     } else {
       await flutterSoundPlayer?.resumePlayer();
     }
@@ -114,6 +89,45 @@ class MushafBloc extends Bloc<MushafEvent, MushafState> {
   void _onMushafPause(MushafPause event, Emitter<MushafState> emit) {
     flutterSoundPlayer?.pausePlayer();
     emit(state.copyWith(isPlaying: false));
+  }
+
+  Future _playAudio(Uint8List uint8list ,Emitter<MushafState> emit) async {
+    flutterSoundPlayer?.startPlayer(
+      codec: Codec.mp3,
+      fromDataBuffer: uint8list,
+    );
+    emit.forEach(
+      flutterSoundPlayer!.onProgress!,
+      onData: (data) {
+        emit(
+          state.copyWith(
+            totalDuration: data.duration,
+            playbackProgress: data.position,
+          ),
+        );
+        if (state.nextLinePlaying?.startTimeMs != null) {
+          print(data.position.inMilliseconds);
+          if (data.position.inMilliseconds >
+              state.nextLinePlaying!.startTimeMs) {
+            emit(
+              state.copyWith(
+                currentLinePlaying: state.nextLinePlaying,
+                nextLinePlaying:
+                    state.quranLineModel[state.quranLineModel.indexOf(
+                          state.nextLinePlaying!,
+                        ) +
+                        1],
+              ),
+            );
+          }
+        }
+        return state;
+      },
+    );
+
+    flutterSoundPlayer?.setSubscriptionDuration(
+      Duration(milliseconds: 100),
+    );
   }
 
   Future _onMushafJumpForward(

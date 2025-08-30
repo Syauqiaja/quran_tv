@@ -1,6 +1,7 @@
 import 'package:audio_session/audio_session.dart';
 import 'package:flutter_sound/flutter_sound.dart';
 import 'package:get_it/get_it.dart';
+import 'package:quran_tv/core/services/google_storage_service.dart';
 import 'package:quran_tv/data/repositories/quran_repository_impl.dart';
 import 'package:quran_tv/data/repositories/reciter_repository_impl.dart';
 import 'package:quran_tv/data/sources/local/local_service.dart';
@@ -45,4 +46,5 @@ Future<void> setupInjections() async {
 
       return player!;
   });
+  getIt.registerSingleton<GoogleStorageService>(GoogleStorageService());
 }

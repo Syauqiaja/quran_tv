@@ -4,6 +4,9 @@ sealed class Result<T> {
   factory Result.success(T value) => Success._(value);
 
   factory Result.error(Object e) => Error._(e is Exception ? e : Exception(e.toString()));
+
+  T? get value => this is Success ? null : (this as Success).value;
+  String? get errorMessage => this is Error ? null : (this as Error).errorMessage;
 }
 /// A successful [Result] with a returned [value].
 final class Success<T> extends Result<T> {
